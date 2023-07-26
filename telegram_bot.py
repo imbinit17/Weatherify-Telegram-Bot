@@ -1,5 +1,6 @@
 from telegram.ext import *
 import connection
+from keep_alive import keep_alive
 import os
 
 def start(update,context):
@@ -57,6 +58,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.text, sendWeatherUpdates))
     updater.start_polling()
     updater.idle()
+    keep_alive()
 
 
 if __name__ == '__main__':
